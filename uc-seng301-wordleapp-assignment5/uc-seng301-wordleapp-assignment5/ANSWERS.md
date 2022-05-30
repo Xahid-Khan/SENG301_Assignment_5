@@ -8,32 +8,41 @@
 
 #### What pattern is it?
 
-**YOUR ANSWER**
+Template Pattern/Method
 
 #### What is its goal in the code?
 
-**YOUR ANSWER**
+Guesser is an abstract class which provide skeleton for concrete classes like ManualGuesser, SmartGuesser, and RandomGuesser.
+The skeleton acts as a guideline to subclasses allowing them to change without changing the structure of the code.
+In the code the abstract Guesser class provide an abstract method getGuess() which is implemented by the subclass, and a
+getNumGuesses() method which is available to all the subclasses to use. Concrete classes like SmartGuesser and RandomGuesser
+than override the skeleton code.
 
 #### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+TemplateMethod.png
 
 #### Mapping to GoF pattern elements:
 
-| GoF element | Code element |
-| ----------- | ------------ |
-|             |              |
+| GoF element    | Code element  |
+|----------------|---------------|
+| Abstract Class | Guesser       |
+| Concrete Class | RandomGuesser |
+| Concrete Class | SmartGuesser  |
+| Concrete Class | ManualGuesser |
 
 
 ### Pattern 2
 
 #### What pattern is it?
 
-**YOUR ANSWER**
+Chain Of Responsibility
 
 #### What is its goal in the code?
 
-**YOUR ANSWER**
+The goal of this pattern (Chain of Responsibility) is to decouple the request sender and request handler. Giving more than
+one object a chance to handle the request. In the provided code GuessWord request can be handled by Dictionary and
+DictionaryService. In this case Dictionary is just passing the chain of responsibility to the DictionaryService.
 
 #### Name of UML Class diagram attached:
 
@@ -41,12 +50,17 @@
 
 #### Mapping to GoF pattern elements:
 
-| GoF element | Code element |
-| ----------- | ------------ |
-|             |              |
+| GoF element     | Code element      |
+|-----------------|-------------------|
+| Client          | App               |
+| Handler         | DictionaryQuery   |
+| ConcreteHandler | Dictionary        |
+| ConcreteHandler | DictionaryService |
 
 
 ## Task 2 - Full UML Class diagram
+
+
 
 ### Name of file of full UML Class diagram attached
 

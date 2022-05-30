@@ -1,0 +1,75 @@
+//Template Method
+
+@startuml
+abstract Class Guesser {
+#wordle
+#numGuesses
++{abstract}getGuess()
++getNumGuesses()
+}
+
+Class RandomGuesser {
+- random
+- words
++RandomGuesser(wordle)
++getGuess()
+}
+
+Class ManualGuesser {
+-scanner
+-printStream
+-dictionaryQuery
+-colourCoder
+-currentGuess
+-guesses
++ManualGuesser(wordle, scanner, printStream)
++getGuesses()
++getGuess()
+}
+
+Class SmartGuesser {
+-random
+-knowledge
+-words
++SmartGuesser(wordle)
++getGuess()
+}
+
+Guesser <|-- RandomGuesser
+
+Guesser <|-- ManualGuesser
+
+Guesser <|-- SmartGuesser
+@enduml
+
+
+//Chain of Responsibility
+
+@startuml
+hide App attributes
+hide App methods
+Class App {}
+
+hide DictionaryQuery attributes
+interface DictionaryQuery{
++guessWord(String query)
+}
+
+Class Dictionary{
+-dictionaryService
++Dictionary()
++guessWord(string)
+}
+
+Class DictionaryService{
+-{static} LOGGER
+-{static} SOLVER_URL
+-objectMapper
++guessWord(string)
++offlineWords()
+}
+
+App --> DictionaryQuery
+DictionaryQuery <|-- Dictionary
+DictionaryQuery <|-- DictionaryService
+@enduml
