@@ -952,3 +952,88 @@
 11:26:02.687 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, help printed
 11:26:06.718 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: exit
 11:26:06.718 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, quitting application
+17:42:15.406 [main] INFO  uc.seng301.wordleapp.assignment5.App - Starting application...
+17:44:18.290 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: !q
+17:44:18.299 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, quitting application
+17:45:08.418 [main] INFO  uc.seng301.wordleapp.assignment5.App - Starting application...
+17:45:31.401 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: tests
+17:45:31.401 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input invalid, tests
+17:45:38.489 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: help
+17:45:38.490 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, help printed
+17:45:42.509 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: khan
+17:45:42.510 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input invalid, khan
+17:45:46.549 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: create khan
+17:45:46.872 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, created user khan} id 1}
+17:45:53.610 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: play khan manual
+17:45:53.801 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Requesting words from api with input: .....
+17:45:54.438 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Api responded with status code '200'
+17:45:54.684 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Playing game with word 'gully'
+17:45:54.685 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:45:57.652 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:45:57.652 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:46:28.960 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:46:28.961 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:46:43.109 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:46:43.110 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:48:13.150 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='whats'}
+17:48:13.150 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:48:25.281 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: null
+17:48:41.459 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: !q
+17:48:41.459 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, quitting application
+17:50:34.899 [main] INFO  uc.seng301.wordleapp.assignment5.App - Starting application...
+17:50:44.773 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: create khan
+17:50:45.117 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, created user khan} id 1}
+17:50:50.860 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: 
+17:50:50.861 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input invalid, 
+17:50:54.880 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: play khan manual
+17:50:55.062 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Requesting words from api with input: .....
+17:50:55.555 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Api responded with status code '200'
+17:50:55.845 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Playing game with word 'gully'
+17:50:55.846 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:50:59.912 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:50:59.912 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:51:04.957 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='whats'}
+17:51:04.957 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:52:12.839 [main] INFO  uc.seng301.wordleapp.assignment5.App - Starting application...
+17:52:48.952 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: create khan
+17:52:49.321 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, created user khan} id 1}
+17:52:53.991 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: play khan manual
+17:52:54.161 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Requesting words from api with input: .....
+17:52:54.656 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Api responded with status code '200'
+17:52:54.931 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Playing game with word 'gully'
+17:52:54.931 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:52:58.041 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:52:58.041 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:53:00.059 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='whats'}
+17:53:00.059 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:53:12.210 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='kinds'}
+17:53:12.210 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:53:44.571 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='yoooo'}
+17:53:44.571 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:54:43.160 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: null
+17:54:50.249 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: hlep
+17:54:50.250 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input invalid, hlep
+17:54:53.290 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: help
+17:54:53.291 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, help printed
+17:55:05.393 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: highscores
+17:55:05.419 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, high scores printed
+17:55:09.413 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: !q
+17:55:09.413 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, quitting application
+17:55:16.743 [main] INFO  uc.seng301.wordleapp.assignment5.App - Starting application...
+17:55:30.722 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: create khan
+17:55:31.052 [main] INFO  uc.seng301.wordleapp.assignment5.App - Input valid, created user khan} id 1}
+17:55:35.780 [main] INFO  uc.seng301.wordleapp.assignment5.App - User input: play khan manual
+17:55:35.952 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Requesting words from api with input: .....
+17:55:36.476 [main] INFO  uc.seng301.wordleapp.assignment5.dictionary.DictionaryService - Api responded with status code '200'
+17:55:36.869 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Playing game with word 'gully'
+17:55:36.869 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:55:52.002 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='reads'}
+17:55:52.002 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:56:18.323 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='write'}
+17:56:18.323 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:56:29.441 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='words'}
+17:56:29.442 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:57:36.180 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='tests'}
+17:57:36.180 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser
+17:58:16.641 [main] INFO  uc.seng301.wordleapp.assignment5.game.Game - Guessing: { proposition='kinds'}
+17:58:16.641 [main] INFO  uc.seng301.wordleapp.assignment5.guesser.ManualGuesser - Getting guess from command line with manual guesser

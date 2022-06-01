@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import uc.seng301.wordleapp.assignment5.command.UndoRedoCommand;
 import uc.seng301.wordleapp.assignment5.guesser.Guess;
 import uc.seng301.wordleapp.assignment5.guesser.Guesser;
 import uc.seng301.wordleapp.assignment5.model.GameRecord;
@@ -18,6 +19,7 @@ public class Game {
     private final User user;
     private final Guesser guesser;
     private final Wordle wordle;
+    private UndoRedoCommand command;
 
     /**
      * Default constructor

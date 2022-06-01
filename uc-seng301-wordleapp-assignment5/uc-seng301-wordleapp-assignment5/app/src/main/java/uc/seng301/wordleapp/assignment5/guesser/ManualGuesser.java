@@ -7,6 +7,8 @@ import java.util.Stack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import uc.seng301.wordleapp.assignment5.command.Command;
+import uc.seng301.wordleapp.assignment5.command.UndoRedoCommand;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryQuery;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryResponse;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryService;
@@ -25,6 +27,8 @@ public class ManualGuesser extends Guesser {
     private final ColourCoder colourCoder;
     private String currentGuess;
     private Stack<Guess> guesses = new Stack<>();
+    private Stack<Guess> redoStack = new Stack<>();
+    private Command command;
 
     public ManualGuesser(Wordle wordle, Scanner cli, PrintStream output) {
         super(wordle);
@@ -32,6 +36,7 @@ public class ManualGuesser extends Guesser {
         this.output = output;
         this.dictionaryQuery = new DictionaryService();
         this.colourCoder = new ColourCoder(wordle);
+        this.command = new UndoRedoCommand(guesses, redoStack);
     }
 
     /**
@@ -52,19 +57,34 @@ public class ManualGuesser extends Guesser {
                 String query = input.split(" ")[1];
                 DictionaryResponse dictionaryResponse = dictionaryQuery.guessWord(query);
                 output.println(dictionaryResponse.getTopFiveResults());
+            } else if (input.length() == 4) {
+                if (input.equalsIgnoreCase("undo")) {
+                    output.println("1");
+                    command.execute();
+                    output.println(guesses);
+                } else if (input.equalsIgnoreCase("redo")) {
+                    output.println("2");
+                    command.unExecute();
+                    output.println(redoStack);
+                }
             } else if (input.equals("!q")) {
                 return null;
             } else if (input.length() != 5) {
                 output.println("Guesses must be 5 letter words");
-            } else {
+            }else {
                 numGuesses++;
                 isPlaying = false;
             }
         }
+
         currentGuess = input;
         Guess guess = new GuessImpl(currentGuess, wordle);
 
         guesses.push(guess);
+        while (!redoStack.empty()) {
+            redoStack.pop();
+        }
+
         for (Guess g : guesses) {
             output.println(colourCoder.getColourCodedString(g.getProposition()));
         }

@@ -67,3 +67,83 @@
 11:24:57.557 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([word4_1_1_] : [VARCHAR]) - [clubs]
 11:24:57.557 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_user5_1_0_] : [BIGINT]) - [1]
 11:24:57.557 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_gamer1_1_0_] : [BIGINT]) - [3]
+17:42:17.681 [main] DEBUG org.hibernate.SQL - drop table if exists game_user
+17:42:17.696 [main] DEBUG org.hibernate.SQL - drop table if exists gamerecord
+17:42:17.706 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+17:42:17.720 [main] DEBUG org.hibernate.SQL - create table game_user (id_user bigint not null, userName varchar(255), primary key (id_user))
+17:42:17.731 [main] DEBUG org.hibernate.SQL - create table gamerecord (id_gamerecord bigint not null, numGuesses integer not null, timestamp datetime, word varchar(255), id_user bigint, primary key (id_gamerecord))
+17:42:17.742 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint)
+17:42:17.752 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+17:45:10.589 [main] DEBUG org.hibernate.SQL - drop table if exists game_user
+17:45:10.607 [main] DEBUG org.hibernate.SQL - drop table if exists gamerecord
+17:45:10.617 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+17:45:10.641 [main] DEBUG org.hibernate.SQL - create table game_user (id_user bigint not null, userName varchar(255), primary key (id_user))
+17:45:10.658 [main] DEBUG org.hibernate.SQL - create table gamerecord (id_gamerecord bigint not null, numGuesses integer not null, timestamp datetime, word varchar(255), id_user bigint, primary key (id_gamerecord))
+17:45:10.671 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint)
+17:45:10.683 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+17:45:46.784 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:45:46.809 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence
+17:45:46.810 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+17:45:46.852 [main] DEBUG org.hibernate.SQL - insert into game_user (userName, id_user) values (?, ?)
+17:45:46.853 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [khan]
+17:45:46.853 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+17:45:54.649 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:45:54.651 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_user1_0_] : [BIGINT]) - [1]
+17:45:54.655 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([username2_0_] : [VARCHAR]) - [khan]
+17:45:54.670 [main] DEBUG org.hibernate.SQL - select gamerecord0_.id_user as id_user5_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_1_, gamerecord0_.numGuesses as numguess2_1_1_, gamerecord0_.timestamp as timestam3_1_1_, gamerecord0_.id_user as id_user5_1_1_, gamerecord0_.word as word4_1_1_ from gamerecord gamerecord0_ where gamerecord0_.id_user=?
+17:45:54.670 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+17:50:37.018 [main] DEBUG org.hibernate.SQL - drop table if exists game_user
+17:50:37.043 [main] DEBUG org.hibernate.SQL - drop table if exists gamerecord
+17:50:37.052 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+17:50:37.067 [main] DEBUG org.hibernate.SQL - create table game_user (id_user bigint not null, userName varchar(255), primary key (id_user))
+17:50:37.079 [main] DEBUG org.hibernate.SQL - create table gamerecord (id_gamerecord bigint not null, numGuesses integer not null, timestamp datetime, word varchar(255), id_user bigint, primary key (id_gamerecord))
+17:50:37.090 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint)
+17:50:37.100 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+17:50:45.022 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:50:45.049 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence
+17:50:45.050 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+17:50:45.095 [main] DEBUG org.hibernate.SQL - insert into game_user (userName, id_user) values (?, ?)
+17:50:45.098 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [khan]
+17:50:45.099 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+17:50:55.804 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:50:55.808 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_user1_0_] : [BIGINT]) - [1]
+17:50:55.811 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([username2_0_] : [VARCHAR]) - [khan]
+17:50:55.831 [main] DEBUG org.hibernate.SQL - select gamerecord0_.id_user as id_user5_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_1_, gamerecord0_.numGuesses as numguess2_1_1_, gamerecord0_.timestamp as timestam3_1_1_, gamerecord0_.id_user as id_user5_1_1_, gamerecord0_.word as word4_1_1_ from gamerecord gamerecord0_ where gamerecord0_.id_user=?
+17:50:55.831 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+17:52:15.026 [main] DEBUG org.hibernate.SQL - drop table if exists game_user
+17:52:15.052 [main] DEBUG org.hibernate.SQL - drop table if exists gamerecord
+17:52:15.064 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+17:52:15.081 [main] DEBUG org.hibernate.SQL - create table game_user (id_user bigint not null, userName varchar(255), primary key (id_user))
+17:52:15.094 [main] DEBUG org.hibernate.SQL - create table gamerecord (id_gamerecord bigint not null, numGuesses integer not null, timestamp datetime, word varchar(255), id_user bigint, primary key (id_gamerecord))
+17:52:15.109 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint)
+17:52:15.120 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+17:52:49.161 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:52:49.189 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence
+17:52:49.190 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+17:52:49.301 [main] DEBUG org.hibernate.SQL - insert into game_user (userName, id_user) values (?, ?)
+17:52:49.301 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [khan]
+17:52:49.301 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+17:52:54.895 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:52:54.895 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_user1_0_] : [BIGINT]) - [1]
+17:52:54.904 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([username2_0_] : [VARCHAR]) - [khan]
+17:52:54.918 [main] DEBUG org.hibernate.SQL - select gamerecord0_.id_user as id_user5_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_1_, gamerecord0_.numGuesses as numguess2_1_1_, gamerecord0_.timestamp as timestam3_1_1_, gamerecord0_.id_user as id_user5_1_1_, gamerecord0_.word as word4_1_1_ from gamerecord gamerecord0_ where gamerecord0_.id_user=?
+17:52:54.918 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+17:55:05.414 [main] DEBUG org.hibernate.SQL - select gamerecord0_.id_gamerecord as id_gamer1_1_, gamerecord0_.numGuesses as numguess2_1_, gamerecord0_.timestamp as timestam3_1_, gamerecord0_.id_user as id_user5_1_, gamerecord0_.word as word4_1_ from gamerecord gamerecord0_ order by gamerecord0_.numGuesses ASC
+17:55:18.881 [main] DEBUG org.hibernate.SQL - drop table if exists game_user
+17:55:18.908 [main] DEBUG org.hibernate.SQL - drop table if exists gamerecord
+17:55:18.919 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+17:55:18.943 [main] DEBUG org.hibernate.SQL - create table game_user (id_user bigint not null, userName varchar(255), primary key (id_user))
+17:55:18.954 [main] DEBUG org.hibernate.SQL - create table gamerecord (id_gamerecord bigint not null, numGuesses integer not null, timestamp datetime, word varchar(255), id_user bigint, primary key (id_gamerecord))
+17:55:18.965 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint)
+17:55:18.975 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+17:55:30.952 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:55:30.978 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence
+17:55:30.979 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+17:55:31.030 [main] DEBUG org.hibernate.SQL - insert into game_user (userName, id_user) values (?, ?)
+17:55:31.033 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [khan]
+17:55:31.033 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+17:55:36.831 [main] DEBUG org.hibernate.SQL - select user0_.id_user as id_user1_0_, user0_.userName as username2_0_ from game_user user0_ where user0_.userName='khan'
+17:55:36.835 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([id_user1_0_] : [BIGINT]) - [1]
+17:55:36.839 [main] TRACE org.hibernate.type.descriptor.sql.BasicExtractor - extracted value ([username2_0_] : [VARCHAR]) - [khan]
+17:55:36.852 [main] DEBUG org.hibernate.SQL - select gamerecord0_.id_user as id_user5_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_0_, gamerecord0_.id_gamerecord as id_gamer1_1_1_, gamerecord0_.numGuesses as numguess2_1_1_, gamerecord0_.timestamp as timestam3_1_1_, gamerecord0_.id_user as id_user5_1_1_, gamerecord0_.word as word4_1_1_ from gamerecord gamerecord0_ where gamerecord0_.id_user=?
+17:55:36.852 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]

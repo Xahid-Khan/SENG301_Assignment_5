@@ -36,13 +36,11 @@ TemplateMethod.png
 
 #### What pattern is it?
 
-Chain Of Responsibility
+Proxy
 
 #### What is its goal in the code?
 
-The goal of this pattern (Chain of Responsibility) is to decouple the request sender and request handler. Giving more than
-one object a chance to handle the request. In the provided code GuessWord request can be handled by Dictionary and
-DictionaryService. In this case Dictionary is just passing the chain of responsibility to the DictionaryService.
+
 
 #### Name of UML Class diagram attached:
 
@@ -50,12 +48,12 @@ DictionaryService. In this case Dictionary is just passing the chain of responsi
 
 #### Mapping to GoF pattern elements:
 
-| GoF element     | Code element      |
-|-----------------|-------------------|
-| Client          | App               |
-| Handler         | DictionaryQuery   |
-| ConcreteHandler | Dictionary        |
-| ConcreteHandler | DictionaryService |
+| GoF element  | Code element      |
+|--------------|-------------------|
+| Client       | App               |
+| Subject      | DictionaryQuery   |
+| Proxy        | Dictionary        |
+| Real Subject | DictionaryService |
 
 
 ## Task 2 - Full UML Class diagram
