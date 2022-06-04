@@ -19,7 +19,6 @@ public class Game {
     private final User user;
     private final Guesser guesser;
     private final Wordle wordle;
-    private UndoRedoCommand command;
 
     /**
      * Default constructor

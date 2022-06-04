@@ -1,6 +1,6 @@
 # SENG301 Assignment 5 (2022) - Student answers
 
-**YOUR NAME**
+**Zahid Khan**
 
 ## Task 1 - Identify the patterns in the code
 
@@ -40,7 +40,10 @@ Proxy
 
 #### What is its goal in the code?
 
-
+Proxy pattern has many uses, it can be used as a placeholder or middle man between classes to increase security. In this 
+code the Dictionary class is a proxy class which access the DictionaryService class and performs the guessWord service. But
+the code doesn't use the proxy class it accesses the service directly, so the proxy service and additional layer of security
+is not utilised.
 
 #### Name of UML Class diagram attached:
 
@@ -57,8 +60,6 @@ Proxy
 
 
 ## Task 2 - Full UML Class diagram
-
-
 
 ### Name of file of full UML Class diagram attached
 
