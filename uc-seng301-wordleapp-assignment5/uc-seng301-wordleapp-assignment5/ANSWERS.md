@@ -8,73 +8,74 @@
 
 #### What pattern is it?
 
-Template Pattern/Method
+Strategy Pattern
 
 #### What is its goal in the code?
 
-Guesser is an abstract class which provide skeleton for concrete classes like ManualGuesser, SmartGuesser, and RandomGuesser.
-The skeleton acts as a guideline to subclasses allowing them to change without changing the structure of the code.
-In the code the abstract Guesser class provide an abstract method getGuess() which is implemented by the subclass, and a
-getNumGuesses() method which is available to all the subclasses to use. Concrete classes like SmartGuesser and RandomGuesser
-than override the skeleton code.
+Strategy defines the family of algorithms, encapsulate each one, and make them interchangeable. As we can see in the provided
+code base, that we have three different implementations of getGuess() method in each subclass of Guesser, so we have three
+different strategies that player/user can choose to play with. The algorithms of each subclass can change independently.
+The purpose of the code is to provide user/player with multiple algorithm options.
 
 #### Name of UML Class diagram attached:
 
-TemplateMethod.png
+Strategy Method.png
 
 #### Mapping to GoF pattern elements:
 
-| GoF element    | Code element  |
-|----------------|---------------|
-| Abstract Class | Guesser       |
-| Concrete Class | RandomGuesser |
-| Concrete Class | SmartGuesser  |
-| Concrete Class | ManualGuesser |
+| GoF element       | Code element  |
+|-------------------|---------------|
+| Context           | Game          |
+| Strategy          | Guesser       |
+| ConcreteStrategyA | SmartGuesser  |
+| ConcreteStrategyB | RandomGuesser |
+| ConcreteStrategyC | ManualGuesser |
+| Algorithm         | getGuess()    |
 
 
 ### Pattern 2
 
 #### What pattern is it?
 
-Proxy
+Proxy Pattern
 
 #### What is its goal in the code?
 
 Proxy pattern has many uses, it can be used as a placeholder or middle man between classes to increase security. In this 
 code the Dictionary class is a proxy class which access the DictionaryService class and performs the guessWord service. But
 the code doesn't use the proxy class it accesses the service directly, so the proxy service and additional layer of security
-is not utilised.
+is not utilised. The purpose of the code is to get help from online wordle solver to solve the guess. 
 
 #### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+Proxy Method.png
 
 #### Mapping to GoF pattern elements:
 
 | GoF element  | Code element      |
 |--------------|-------------------|
-| Client       | App               |
 | Subject      | DictionaryQuery   |
 | Proxy        | Dictionary        |
 | Real Subject | DictionaryService |
+| request()    | guessWord(String) |
 
 
 ## Task 2 - Full UML Class diagram
 
 ### Name of file of full UML Class diagram attached
 
-**YOUR ANSWER**
-
+Retro-document-design.png
 
 ## Task 3 - Implement new feature
 
 ### What pattern fulfils the need for the feature?
 
-**YOUR ANSWER**
+Command Pattern
 
 ### What is its goal and why is it needed here?
 
-**YOUR ANSWER**
+Command pattern encapsulates a request as an object, which help us decouple the request sender from request receiver, 
+this pattern also support undoable operations. 
 
 ### Name of UML Class diagram attached:
 

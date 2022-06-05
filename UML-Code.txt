@@ -1,6 +1,12 @@
-//Template Method
-
+//Strategy Method
 @startuml
+hide empty attributes
+
+Class Game {
+  Game(User, Guesser, Wordle)
+  playGame()
+}
+
 abstract Class Guesser {
 #wordle
 #numGuesses
@@ -8,46 +14,37 @@ abstract Class Guesser {
 +getNumGuesses()
 }
 
+Game *- Guesser
+
 Class RandomGuesser {
-- random
-- words
 +RandomGuesser(wordle)
 +getGuess()
 }
 
 Class ManualGuesser {
--scanner
--printStream
--dictionaryQuery
--colourCoder
--currentGuess
--guesses
 +ManualGuesser(wordle, scanner, printStream)
-+getGuesses()
-+getGuess()
++getGuesses(): Stack<Guess>
++getGuess(): Guess
 }
 
 Class SmartGuesser {
--random
--knowledge
--words
 +SmartGuesser(wordle)
-+getGuess()
++getGuess(): Guess
 }
 
-Guesser <|-- RandomGuesser
+Guesser <|--- RandomGuesser
 
-Guesser <|-- ManualGuesser
+Guesser <|--- ManualGuesser
 
-Guesser <|-- SmartGuesser
+Guesser <|--- SmartGuesser
 @enduml
 
 
-//Chain of Responsibility
+//Proxy
 
 @startuml
-hide App attributes
-hide App methods
+hide empty attributes
+hide empty methods
 Class App {}
 
 hide DictionaryQuery attributes
@@ -56,7 +53,6 @@ interface DictionaryQuery{
 }
 
 Class Dictionary{
--dictionaryService
 +Dictionary()
 +guessWord(string)
 }
@@ -69,7 +65,151 @@ Class DictionaryService{
 +offlineWords()
 }
 
-App --> DictionaryQuery
+Dictionary -> DictionaryService
+App -> DictionaryQuery
 DictionaryQuery <|-- Dictionary
 DictionaryQuery <|-- DictionaryService
+@enduml
+
+
+
+/// Tast 2 - UML
+
+
+@startuml
+hide empty fields
+hide empty methods
+
+Class User {
+  userId: Long
+  name: String
+}
+
+Class UserAccessor {
+  getUserByName(String): User
+  getUserById(Long): User
+  persistUser(User): Long
+  removeUserById(Long)
+}
+
+UserAccessor "1" -- "0..*" User : access >
+
+Class GameRecord {
+  gameRecordId: Long
+  numGuesses: int
+  word: String
+}
+
+Class GameRecordAccessor {
+  getHighScores(): List<GameRecord>
+  persistGameRecor(GameRecord): Long
+  deleteGameRecordById(Long)
+}
+
+GameRecordAccessor "1" -- "0..*" GameRecord : access
+
+Class Game{
+  +Game(User, Guesser, Wordle)
+  +playGame(): GameRecord
+}
+
+Class Wordle {
+  Wordle(String)
+  check(String) : boolean
+  getWord() : String
+}
+
+
+User "1" -- "0..*" Game : plays >
+GameRecord "1" - "1..*" Game : records >
+Game "1" *- "1" Wordle : agains >
+Game "1" *---- "1" Guesser : with >
+Wordle "1" *---- "0..*" Guess : < for
+
+abstract Class Guess {
+  proposition: String
+  {abstract} getProposition()
+  {abstract} isCorrect()
+}
+
+Class GuessImpl {
+  isCorrect(): boolean
+  getProposition(): String
+}
+
+Guess <|-- GuessImpl
+
+abstract Class Guesser{
+  getGuess(): Guess
+  getNumGuesses() : int
+}
+
+Class ManualGuesser {
+  ManualGuesser(Wordle, Scanner, PrintStream)
+  getGuess() : Guess
+  getGuesses() : Stack<Guess>
+}
+
+Class RandomGuesser {
+  RandomGuesser(Wordle)
+  getGuess(): Guess
+}
+
+Class SmartGuesser {
+  SmartGuesser(Wordle)
+  getGuess(): Guess
+}
+
+Guesser <|--- ManualGuesser
+Guesser <|--- SmartGuesser
+Guesser <|--- RandomGuesser
+Guesser "1" *- "0..*" Guess : creates >
+
+Class ColourCoder {
+  ColourCode(Wordle)
+  getColourCodedString(String): String
+}
+
+ManualGuesser "1..*" -- "1..*" ColourCoder : uses >
+
+interface DictionaryQuery {
+  guessWord(String)
+}
+
+
+Class Dictionary {
+  guessWord(String): DictionaryResponse
+}
+
+Class DictionaryService {
+  guessWord(String): DictionaryResponse
+  offlineWords(): DictionaryResponse
+}
+
+Class DictionaryResponse{
+  words: List<String>
+}
+
+
+DictionaryQuery <|. Dictionary
+DictionaryQuery <|.. DictionaryService 
+Dictionary "0..1" - "0..1" Guesser : helps >
+Dictionary "1" - "1..*" DictionaryResponse : builds >
+DictionaryService "1" - "1..*" DictionaryResponse : builds >
+
+
+interface Command {
+  execut()
+}
+
+Class undoCommand {
+  undo()
+}
+
+Class redoCommand {
+  redo()
+}
+
+
+
 @enduml
