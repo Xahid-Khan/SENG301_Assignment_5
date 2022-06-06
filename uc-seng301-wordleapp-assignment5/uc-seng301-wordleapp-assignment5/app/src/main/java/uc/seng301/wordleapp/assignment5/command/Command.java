@@ -16,4 +16,13 @@ public interface Command {
      *
      */
     public void execute();
+
+
+    /**
+     * Redo a Guess
+     * @Precondition A guess has been undone, and the undo tracking Stack is not empty
+     * @Postcondition The guess is removed from the Stack that is tracking undone Guesses and added back to the guesses Stack
+     */
+
+    public void undoExecute();
 }

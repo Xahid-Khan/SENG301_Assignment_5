@@ -57,9 +57,9 @@ public class ManualGuesser extends Guesser {
                 output.println(dictionaryResponse.getTopFiveResults());
             } else if (input.equals("!q")) {
                 return null;
-            } else if (input.length() != 5) {
+            } else if (input.length() != 5 && !input.equalsIgnoreCase("undo") && !input.equalsIgnoreCase("redo")) {
                 output.println("Guesses must be 5 letter words");
-            } else if (input.equalsIgnoreCase("undo!") || input.equalsIgnoreCase("redo!")) {
+            } else if (input.equalsIgnoreCase("undo") || input.equalsIgnoreCase("redo")) {
                 Guess guess = new GuessImpl(input, wordle);
                 return guess;
             } else {

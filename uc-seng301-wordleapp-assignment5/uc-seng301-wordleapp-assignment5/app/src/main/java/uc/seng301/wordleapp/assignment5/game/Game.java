@@ -1,13 +1,11 @@
 package uc.seng301.wordleapp.assignment5.game;
 
 import java.util.Date;
-import java.util.Stack;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import uc.seng301.wordleapp.assignment5.command.Command;
-import uc.seng301.wordleapp.assignment5.command.RedoCommand;
 import uc.seng301.wordleapp.assignment5.command.SetCommand;
 import uc.seng301.wordleapp.assignment5.command.UndoCommand;
 import uc.seng301.wordleapp.assignment5.guesser.Guess;
@@ -58,14 +56,10 @@ public class Game {
             if (guess == null) {
                 return null;
             }
-            if (guess.getProposition().equalsIgnoreCase("undo!")) {
+            if (guess.getProposition().equalsIgnoreCase("undo") ||
+                guess.getProposition().equalsIgnoreCase("redo")) {
                 Command undoCommand = new UndoCommand((ManualGuesser) guesser);
-//                SetCommand setCommand = new SetCommand();
-                setCommand.executeCommand(undoCommand);
-            } else if (guess.getProposition().equalsIgnoreCase("redo!")) {
-                Command redoCommand = new RedoCommand((ManualGuesser) guesser);
-////                SetCommand setCommand = new SetCommand();
-                setCommand.executeCommand(redoCommand);
+                setCommand.executeCommand(undoCommand, guess.getProposition());
             } else {
                 gameWon = guess.isCorrect();
             }

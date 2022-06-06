@@ -24,4 +24,12 @@ public class UndoCommand implements Command{
     public void execute() {
         receiver.undoAGuess();
     }
+
+    /**
+     * This method will invoke the redo method available from the provided receiver.
+     */
+    @Override
+    public void undoExecute() {
+        receiver.redoAGuess();
+    }
 }
