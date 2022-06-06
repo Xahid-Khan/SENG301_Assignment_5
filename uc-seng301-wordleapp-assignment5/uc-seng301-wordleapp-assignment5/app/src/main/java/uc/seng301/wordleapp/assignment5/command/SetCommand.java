@@ -1,16 +1,17 @@
 package uc.seng301.wordleapp.assignment5.command;
 
+/**
+ * This class
+ */
 public class SetCommand {
 
-    private Command command;
+    public SetCommand() {};
 
-    public SetCommand(Command command) {
-        this.command = command;
-    };
-
-    public void executeCommand () {
-        this.command.execute();
+    public void executeCommand (Command command) {
+        command.execute();
     }
+
+
 
 
 }

@@ -8,8 +8,6 @@ import java.util.Stack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import uc.seng301.wordleapp.assignment5.command.Command;
-import uc.seng301.wordleapp.assignment5.command.UndoCommand;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryQuery;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryResponse;
 import uc.seng301.wordleapp.assignment5.dictionary.DictionaryService;
@@ -90,28 +88,30 @@ public class ManualGuesser extends Guesser {
         return guesses;
     }
 
+    /**
+     * This method performs an undo operation on the stack of Guesses and reduces the number of guesses by one with each
+     * command
+     */
     public void undoAGuess () {
-        output.println("Undo Before and After:");
-        output.println(numGuesses);
         if (guesses.isEmpty()) {
             output.println("There is no Guess to Undo");
         } else {
             trackingUndo.push(guesses.pop());
             numGuesses--;
         }
-        output.println(numGuesses);
     }
 
+    /**
+     * This method performs a redo operation on a stack of Guesses and increase the number of guesses by one with each
+     * command
+     */
     public void redoAGuess () {
-        output.println("Redo Before and After:");
-        output.println(numGuesses);
         if (trackingUndo.isEmpty()) {
             output.println("There is no Guess to Redo");
         } else {
             guesses.push(trackingUndo.pop());
             numGuesses++;
         }
-        output.println(numGuesses);
     }
 
 }

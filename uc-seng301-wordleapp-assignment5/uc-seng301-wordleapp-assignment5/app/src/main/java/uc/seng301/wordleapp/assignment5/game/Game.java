@@ -25,6 +25,8 @@ public class Game {
     private final Guesser guesser;
     private final Wordle wordle;
 
+    private SetCommand setCommand;
+
     /**
      * Default constructor
      *
@@ -36,6 +38,7 @@ public class Game {
         this.user = user;
         this.guesser = guesser;
         this.wordle = wordle;
+        this.setCommand = new SetCommand();
     }
 
     /**
@@ -55,15 +58,14 @@ public class Game {
             if (guess == null) {
                 return null;
             }
-
             if (guess.getProposition().equalsIgnoreCase("undo!")) {
                 Command undoCommand = new UndoCommand((ManualGuesser) guesser);
-                SetCommand setCommand = new SetCommand(undoCommand);
-                setCommand.executeCommand();
+//                SetCommand setCommand = new SetCommand();
+                setCommand.executeCommand(undoCommand);
             } else if (guess.getProposition().equalsIgnoreCase("redo!")) {
                 Command redoCommand = new RedoCommand((ManualGuesser) guesser);
-                SetCommand setCommand = new SetCommand(redoCommand);
-                setCommand.executeCommand();
+////                SetCommand setCommand = new SetCommand();
+                setCommand.executeCommand(redoCommand);
             } else {
                 gameWon = guess.isCorrect();
             }

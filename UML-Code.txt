@@ -65,10 +65,50 @@ Class DictionaryService{
 +offlineWords()
 }
 
-Dictionary -> DictionaryService
+Dictionary -> DictionaryService: uses
 App -> DictionaryQuery
-DictionaryQuery <|-- Dictionary
-DictionaryQuery <|-- DictionaryService
+DictionaryQuery <|.. Dictionary
+DictionaryQuery <|.. DictionaryService
+@enduml
+
+
+
+// Command
+
+
+
+@startuml
+interface Command {
+  {abstract}execute()
+}
+
+Class UndoCommand {
+  UndoCommand(ManualGuesser)
+  undo()
+  execute()
+}
+
+Class Game {
+  playGame()
+}
+
+Class SetCommand {
+  setCommand(Command)
+}
+
+Class ManualGuesser {
+  getGuess()   : Guess
+  undoAGuess() : void
+  redoAGuess() : void
+  getGuesses() : Stack<Guess>
+}
+
+Game -> ManualGuesser : uses
+Game -> SetCommand : sets
+Game ..> UndoCommand : creates
+Command <|.. UndoCommand
+SetCommand o- Command
+UndoCommand --> ManualGuesser
 @enduml
 
 
@@ -123,8 +163,8 @@ Class Wordle {
 User "1" -- "0..*" Game : plays >
 GameRecord "1" - "1..*" Game : records >
 Game "1" *- "1" Wordle : agains >
-Game "1" *---- "1" Guesser : with >
-Wordle "1" *---- "0..*" Guess : < for
+Game "1" *-- "1" Guesser : with >
+Wordle "1" *-- "0..*" Guess : < for
 
 abstract Class Guess {
   proposition: String
@@ -160,9 +200,9 @@ Class SmartGuesser {
   getGuess(): Guess
 }
 
-Guesser <|--- ManualGuesser
-Guesser <|--- SmartGuesser
-Guesser <|--- RandomGuesser
+Guesser <|---- ManualGuesser
+Guesser <|-- SmartGuesser
+Guesser <|-- RandomGuesser
 Guesser "1" *- "0..*" Guess : creates >
 
 Class ColourCoder {
@@ -170,11 +210,21 @@ Class ColourCoder {
   getColourCodedString(String): String
 }
 
-ManualGuesser "1..*" -- "1..*" ColourCoder : uses >
+ManualGuesser "1" *-- "1" ColourCoder : uses >
+ManualGuesser "1" *-- "1" DictionaryQuery : uses >
 
 interface DictionaryQuery {
   guessWord(String)
 }
+
+Class Knowledge {
+  update(Guess, String)
+  getKnownInPlace(): char[]
+  getKnownOutOfPlace(): char[]
+  getKnownNotInWord(): char[]
+}
+
+SmartGuesser "1" *-- "1" Knowledge
 
 
 Class Dictionary {
@@ -192,24 +242,9 @@ Class DictionaryResponse{
 
 
 DictionaryQuery <|. Dictionary
-DictionaryQuery <|.. DictionaryService 
-Dictionary "0..1" - "0..1" Guesser : helps >
+DictionaryQuery <|.. DictionaryService
+Dictionary "1" -- "1" DictionaryService
+Dictionary "0..1" -- "0..*" Guesser : helps >
 Dictionary "1" - "1..*" DictionaryResponse : builds >
 DictionaryService "1" - "1..*" DictionaryResponse : builds >
-
-
-interface Command {
-  execut()
-}
-
-Class undoCommand {
-  undo()
-}
-
-Class redoCommand {
-  redo()
-}
-
-
-
 @enduml

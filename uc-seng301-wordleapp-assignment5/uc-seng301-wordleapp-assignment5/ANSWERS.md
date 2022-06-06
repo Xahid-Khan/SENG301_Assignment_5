@@ -75,17 +75,23 @@ Command Pattern
 ### What is its goal and why is it needed here?
 
 Command pattern encapsulates a request as an object, which help us decouple the request sender from request receiver, 
-this pattern also support undoable operations. 
+this pattern also support undoable operations. By using the command pattern we can create independent command objects
+which can carry out the undo and redo actions. 
 
 ### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+Command Pattern.png
 
 ### Mapping to GoF pattern elements:
 
-| GoF element | Code element |
-| ----------- | ------------ |
-|             |              |
+| GoF element     | Code element  |
+|-----------------|---------------|
+| Command         | Command       |
+| ConcreteCommand | UndoCommand   |
+| ConcreteCommand | RedoCommand   |
+| Receiver        | ManualGuesser |
+| Invoker         | SetCommand    |
+| Client          | Game          |
 
 
 ## Task 4 - BONUS - Acceptance tests for Task 4
