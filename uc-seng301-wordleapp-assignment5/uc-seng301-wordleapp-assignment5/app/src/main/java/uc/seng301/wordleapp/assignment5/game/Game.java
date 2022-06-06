@@ -1,12 +1,18 @@
 package uc.seng301.wordleapp.assignment5.game;
 
 import java.util.Date;
+import java.util.Stack;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import uc.seng301.wordleapp.assignment5.command.Command;
+import uc.seng301.wordleapp.assignment5.command.RedoCommand;
+import uc.seng301.wordleapp.assignment5.command.SetCommand;
+import uc.seng301.wordleapp.assignment5.command.UndoCommand;
 import uc.seng301.wordleapp.assignment5.guesser.Guess;
 import uc.seng301.wordleapp.assignment5.guesser.Guesser;
+import uc.seng301.wordleapp.assignment5.guesser.ManualGuesser;
 import uc.seng301.wordleapp.assignment5.model.GameRecord;
 import uc.seng301.wordleapp.assignment5.model.User;
 
@@ -49,7 +55,18 @@ public class Game {
             if (guess == null) {
                 return null;
             }
-            gameWon = guess.isCorrect();
+
+            if (guess.getProposition().equalsIgnoreCase("undo!")) {
+                Command undoCommand = new UndoCommand((ManualGuesser) guesser);
+                SetCommand setCommand = new SetCommand(undoCommand);
+                setCommand.executeCommand();
+            } else if (guess.getProposition().equalsIgnoreCase("redo!")) {
+                Command redoCommand = new RedoCommand((ManualGuesser) guesser);
+                SetCommand setCommand = new SetCommand(redoCommand);
+                setCommand.executeCommand();
+            } else {
+                gameWon = guess.isCorrect();
+            }
         }
         LOGGER.info("Game completed with {} guesses", guesser.getNumGuesses());
         GameRecord gameRecord = new GameRecord();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uc.seng301.wordleapp.assignment5.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-05T12:12:44" hostname="DESKTOP-K390J1F" time="0.02">
+<testsuite name="uc.seng301.wordleapp.assignment5.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-06T04:13:19" hostname="DESKTOP-0274K8H" time="0.014">
   <properties/>
-  <testcase name="appHasAGreeting()" classname="uc.seng301.wordleapp.assignment5.AppTest" time="0.02"/>
+  <testcase name="appHasAGreeting()" classname="uc.seng301.wordleapp.assignment5.AppTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -16,13 +16,4 @@ public interface Command {
      *
      */
     public void execute();
-//
-//    /**
-//     * Redo a guess
-//     *
-//     * @Preconditions The redo guess array is not empty, means there is something to redo
-//     * @Postconditions A guess is added back to the game guess made stack
-//     *
-//     */
-//    public void undo();
 }

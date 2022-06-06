@@ -28,7 +28,7 @@ public class ManualGuesser extends Guesser {
     private final ColourCoder colourCoder;
     private String currentGuess;
     private Stack<Guess> guesses = new Stack<>();
-    private Stack<Command> commands = new Stack<>();
+    private Stack<Guess> trackingUndo = new Stack<>();
 
     public ManualGuesser(Wordle wordle, Scanner cli, PrintStream output) {
         super(wordle);
@@ -49,6 +49,7 @@ public class ManualGuesser extends Guesser {
         LOGGER.info("Getting guess from command line with manual guesser");
         String input = "";
         boolean isPlaying = true;
+
         while (isPlaying) {
             output.println("Please enter your guess:");
             input = cli.nextLine();
@@ -58,15 +59,15 @@ public class ManualGuesser extends Guesser {
                 output.println(dictionaryResponse.getTopFiveResults());
             } else if (input.equals("!q")) {
                 return null;
-            } else if (input.substring(0, 5).equalsIgnoreCase("undo ") || input.substring(0, 5).equalsIgnoreCase("redo ")) {
-                if (input.substring(0, 5).equalsIgnoreCase("undo")) {
-                    commands.push(new UndoCommand());
-                }
-            }else if (input.length() != 5) {
+            } else if (input.length() != 5) {
                 output.println("Guesses must be 5 letter words");
-            }else {
+            } else if (input.equalsIgnoreCase("undo!") || input.equalsIgnoreCase("redo!")) {
+                Guess guess = new GuessImpl(input, wordle);
+                return guess;
+            } else {
                 numGuesses++;
                 isPlaying = false;
+                trackingUndo.clear();
             }
         }
 
@@ -88,4 +89,29 @@ public class ManualGuesser extends Guesser {
     public Stack<Guess> getGuesses() {
         return guesses;
     }
+
+    public void undoAGuess () {
+        output.println("Undo Before and After:");
+        output.println(numGuesses);
+        if (guesses.isEmpty()) {
+            output.println("There is no Guess to Undo");
+        } else {
+            trackingUndo.push(guesses.pop());
+            numGuesses--;
+        }
+        output.println(numGuesses);
+    }
+
+    public void redoAGuess () {
+        output.println("Redo Before and After:");
+        output.println(numGuesses);
+        if (trackingUndo.isEmpty()) {
+            output.println("There is no Guess to Redo");
+        } else {
+            guesses.push(trackingUndo.pop());
+            numGuesses++;
+        }
+        output.println(numGuesses);
+    }
+
 }

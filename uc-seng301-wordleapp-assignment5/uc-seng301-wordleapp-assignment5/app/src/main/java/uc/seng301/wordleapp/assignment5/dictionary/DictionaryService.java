@@ -19,7 +19,8 @@ import org.apache.logging.log4j.Logger;
  * HTTP client to invoke the remote wordle solver
  */
 public class DictionaryService implements DictionaryQuery {
-    private static final Logger LOGGER = LogManager.getLogger(DictionaryService.class);
+    private
+    final Logger LOGGER = LogManager.getLogger(DictionaryService.class);
     private static final String SOLVER_URL = "https://seng301.csse.canterbury.ac.nz/solver/";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
