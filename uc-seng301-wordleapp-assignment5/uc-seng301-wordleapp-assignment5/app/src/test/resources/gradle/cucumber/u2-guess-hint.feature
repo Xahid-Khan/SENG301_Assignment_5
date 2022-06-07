@@ -1,14 +1,15 @@
-Feature: U3 - Playing the game manually
+Feature: U2 - As a player, I want to retrieve possible guesses so that I can see possible options
+  Scenario: AC1 - I can get a list of possible words given the letters I know
+    Given I know the letters "th..." of the word
+    When I get a list of possible words
+    Then The available options are returned with only those that match
 
-  Scenario: AC1 - When playing the game with manual guesses each guess correctly adds to the number of guesses
-    Given I am playing with the manual guesser
-    When I make a guess
-    Then The guess count is updated correctly
-    And The Guess is added to the stack
+  Scenario: AC2 - I can get a list of all possible words
+    Given I know the letters "" of the word
+    When I get a list of possible words
+    Then All available words are returned
 
-  Scenario: AC2 - When playing the game, I cannot make a guess with a 4 letter word
-    Given I am playing with the manual guesser
-    When I make a guess "tall"
-    Then I am not allowed to make the guess
-    And The guess count is not changed
-    And The Guess is not added to the stack
+  Scenario: AC3 - If there are no words that match none are returned
+    Given I know the letters "aaaaa" of the word
+    When I get a list of possible words
+    Then No words are returned

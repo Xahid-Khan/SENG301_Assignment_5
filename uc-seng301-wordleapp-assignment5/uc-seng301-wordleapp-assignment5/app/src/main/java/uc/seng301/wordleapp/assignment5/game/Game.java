@@ -5,9 +5,7 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import uc.seng301.wordleapp.assignment5.command.Command;
-import uc.seng301.wordleapp.assignment5.command.SetCommand;
-import uc.seng301.wordleapp.assignment5.command.UndoCommand;
+import uc.seng301.wordleapp.assignment5.command.*;
 import uc.seng301.wordleapp.assignment5.guesser.Guess;
 import uc.seng301.wordleapp.assignment5.guesser.Guesser;
 import uc.seng301.wordleapp.assignment5.guesser.ManualGuesser;
@@ -23,7 +21,7 @@ public class Game {
     private final Guesser guesser;
     private final Wordle wordle;
 
-    private SetCommand setCommand;
+    private final SetCommand setCommand;
 
     /**
      * Default constructor

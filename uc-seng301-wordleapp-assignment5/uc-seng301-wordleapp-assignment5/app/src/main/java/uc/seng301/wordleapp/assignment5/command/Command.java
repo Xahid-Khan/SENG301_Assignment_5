@@ -1,7 +1,5 @@
 package uc.seng301.wordleapp.assignment5.command;
 
-import uc.seng301.wordleapp.assignment5.dictionary.DictionaryResponse;
-
 /**
  * This class exposes an interface to undo and redo a guess
  *

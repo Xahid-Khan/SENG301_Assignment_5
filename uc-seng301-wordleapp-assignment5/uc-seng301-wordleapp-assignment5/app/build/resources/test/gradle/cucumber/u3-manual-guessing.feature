@@ -1,4 +1,4 @@
-Feature: U4 - Playing the game manually
+Feature: U3 - Playing the game manually
 
   Scenario: AC1 - When playing the game with manual guesses each guess correctly adds to the number of guesses
     Given I am playing with the manual guesser

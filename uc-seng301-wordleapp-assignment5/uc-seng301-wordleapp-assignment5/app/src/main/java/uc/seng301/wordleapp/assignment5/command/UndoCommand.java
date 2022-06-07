@@ -5,7 +5,7 @@ import uc.seng301.wordleapp.assignment5.guesser.ManualGuesser;
 /**
  * A simple class which implements the Command Interface to undo and redo the guess.
  */
-public class UndoCommand implements Command{
+public class UndoCommand implements Command {
 
     private ManualGuesser receiver;
 
@@ -13,7 +13,7 @@ public class UndoCommand implements Command{
      * A simple constructor that takes a Manual Guesser as a parameter and assign it to the local variable.
      * @param receiver
      */
-    public UndoCommand(ManualGuesser receiver) {
+    public UndoCommand (ManualGuesser receiver) {
         this.receiver = receiver;
     }
 

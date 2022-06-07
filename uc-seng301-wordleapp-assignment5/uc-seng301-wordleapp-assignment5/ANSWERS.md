@@ -76,7 +76,9 @@ Command Pattern
 
 Command pattern encapsulates a request as an object, which help us decouple the request sender from request receiver, 
 this pattern also support undoable operations. By using the command pattern we can create independent command objects
-which can carry out the undo and redo actions. 
+which can carry out the undo and redo actions, and it can execute requests at different times. It fits perfectly with
+provided code base to separate the request sender and receiver and allow us to encapsulate methods into stand-alone 
+objects which can be parameterised. 
 
 ### Name of UML Class diagram attached:
 
@@ -88,7 +90,6 @@ Command Pattern.png
 |-----------------|---------------|
 | Command         | Command       |
 | ConcreteCommand | UndoCommand   |
-| ConcreteCommand | RedoCommand   |
 | Receiver        | ManualGuesser |
 | Invoker         | SetCommand    |
 | Client          | Game          |
@@ -98,8 +99,8 @@ Command Pattern.png
 
 ### Feature file (Cucumber Scenarios)
 
-**NAME OF FEATURE FILE**
+u5-undo-redo-guess.feature
 
 ### Java class implementing the acceptance tests
 
-**NAME OF JAVA FILE**
+UndoRedoGuessFeature

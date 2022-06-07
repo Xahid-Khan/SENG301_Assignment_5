@@ -76,16 +76,19 @@ DictionaryQuery <|.. DictionaryService
 // Command
 
 
-
 @startuml
+
+hide empty attributes
+
 interface Command {
   {abstract}execute()
+  {abstract}undoExecute()
 }
 
 Class UndoCommand {
   UndoCommand(ManualGuesser)
-  undo()
   execute()
+  undoExecute()
 }
 
 Class Game {
@@ -93,7 +96,7 @@ Class Game {
 }
 
 Class SetCommand {
-  setCommand(Command)
+  executeCommand(Command, String)
 }
 
 Class ManualGuesser {
@@ -110,7 +113,6 @@ Command <|.. UndoCommand
 SetCommand o- Command
 UndoCommand --> ManualGuesser
 @enduml
-
 
 
 /// Tast 2 - UML
